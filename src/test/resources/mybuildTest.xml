@@ -2,7 +2,7 @@
     
     <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
     
-    <include file="${project.build.outputDirectory}/mybuild.xml"/>
+    <import file="${project.build.outputDirectory}/mybuild.xml"/>
 
     <target name="setUp">
         <echo>setup</echo>
