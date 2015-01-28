@@ -1,0 +1,25 @@
+<project name="mybuildTest" xmlns:au="antlib:org.apache.ant.antunit" xmlns="antlib:org.apache.tools.ant">
+    
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+    
+    <include file="${project.build.outputDirectory}/mybuild.xml"/>
+
+    <target name="setUp">
+        <echo>setup</echo>
+    </target>
+
+    <target name="test1">
+        <antcallback target="mybuild.main" return="result">
+            <!-- intended to enable loading mybuild.properties -->
+            <param name="basedir" value="${project.build.outputDirectory}"/>
+        </antcallback>
+
+        <au:assertTrue>
+            <equals arg1="Hello from mybuild | Hello from mybuild.properties" arg2="${result}"/>
+        </au:assertTrue>
+    </target>
+
+    <target name="tearDown">
+        <echo>tearDown</echo>
+    </target>
+</project>

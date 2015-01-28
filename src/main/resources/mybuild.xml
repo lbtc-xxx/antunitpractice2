@@ -1,0 +1,8 @@
+<project name="mybuild" basedir=".">
+
+    <target name="main">
+        <loadproperties srcFile="mybuild.properties"/>
+        <property name="result" value="Hello from mybuild | ${file.var}"/>
+    </target>
+
+</project>
